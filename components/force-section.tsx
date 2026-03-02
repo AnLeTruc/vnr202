@@ -21,6 +21,26 @@ export function ForceSection() {
           Quá trình xây dựng lực lượng từ 1941 đến 1945
         </Reveal>
 
+        {/* Historical image */}
+        <Reveal delayMs={220} className="mb-10">
+          <div className="relative rounded-xl overflow-hidden shadow-lg border border-border">
+            <div className="aspect-[16/9] md:aspect-[21/9] relative">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Vo_Nguyen_Giap%2C_Vietminh_forces%2C_1944.jpg/500px-Vo_Nguyen_Giap%2C_Vietminh_forces%2C_1944.jpg"
+                alt="Đại tướng Võ Nguyên Giáp và lực lượng Việt Minh, 1944"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <p className="text-white/90 text-sm md:text-base font-medium drop-shadow-lg">
+                  Đại tướng Võ Nguyên Giáp cùng lực lượng Việt Minh (1944)
+                </p>
+                <p className="text-white/60 text-xs mt-1">Nguồn: Wikimedia Commons</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         <div className="grid md:grid-cols-2 gap-6">
           {/* Political force */}
           <Reveal className="bg-card border border-border rounded-lg p-6 md:p-8" delayMs={260}>

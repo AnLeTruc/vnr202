@@ -124,6 +124,26 @@ export function StrategySection() {
           Quá trình chuẩn bị có hệ thống từ 1939 đến 1941
         </Reveal>
 
+        {/* Historical image */}
+        <Reveal delayMs={220} className="mb-10">
+          <div className="relative rounded-xl overflow-hidden shadow-lg border border-border">
+            <div className="aspect-[16/9] md:aspect-[21/9] relative">
+              <img
+                src="https://baotanghochiminh.vn/pic/Customer/images/N%C4%83m%202023/Thang%203/bac-ho-chu-tri-hoi-nghi-trung-uong-dang-lan-thu-tam.jpg"
+                alt="Bác Hồ chủ trì Hội nghị Trung ương Đảng lần thứ VIII (5/1941)"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <p className="text-white/90 text-sm md:text-base font-medium drop-shadow-lg">
+                  Bác Hồ chủ trì Hội nghị Trung ương Đảng lần thứ VIII tại Pác Bó (5/1941)
+                </p>
+                <p className="text-white/60 text-xs mt-1">Nguồn: Bảo tàng Hồ Chí Minh</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         <div className="space-y-4">
           {conferences.map((conf, i) => (
             <Reveal key={conf.id} delayMs={240 + i * 90}>

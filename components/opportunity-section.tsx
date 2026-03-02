@@ -21,6 +21,26 @@ export function OpportunitySection() {
           Sự kiện 1945 — Hành động thần tốc và chính xác
         </Reveal>
 
+        {/* Historical image */}
+        <Reveal delayMs={220} className="mb-10">
+          <div className="relative rounded-xl overflow-hidden shadow-lg border border-border">
+            <div className="aspect-[16/9] md:aspect-[21/9] relative">
+              <img
+                src="https://congdoantkv.vn/data/images/anh-1.jpg"
+                alt="Khí thế Tổng khởi nghĩa tháng 8/1945"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <p className="text-white/90 text-sm md:text-base font-medium drop-shadow-lg">
+                  Sức mạnh quần chúng và khí thế Tổng khởi nghĩa tháng 8/1945
+                </p>
+                <p className="text-white/60 text-xs mt-1">Nguồn: Công đoàn TKV</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         {/* Event 1: Japan coup */}
         <Reveal className="mb-8 bg-card border border-border rounded-lg overflow-hidden" delayMs={260}>
           <div className="bg-primary/5 p-5 md:p-6 border-b border-border">
