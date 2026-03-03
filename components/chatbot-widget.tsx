@@ -48,7 +48,7 @@ export function ChatbotWidget() {
     <>
       {/* Chat window */}
       <div
-        className={`fixed bottom-24 right-4 md:right-6 z-50 transition-all duration-300 origin-bottom-right ${
+        className={`fixed bottom-40 right-4 md:right-6 z-50 transition-all duration-300 origin-bottom-right ${
           isOpen
             ? "scale-100 opacity-100 pointer-events-auto"
             : "scale-95 opacity-0 pointer-events-none"
@@ -88,7 +88,7 @@ export function ChatbotWidget() {
 
       {/* Greeting bubble */}
       <div
-        className={`fixed bottom-24 right-4 md:right-6 z-40 transition-all duration-300 ${
+        className={`fixed bottom-40 right-4 md:right-6 z-40 transition-all duration-300 ${
           showGreeting && !isOpen
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "translate-y-2 opacity-0 pointer-events-none"
@@ -113,7 +113,7 @@ export function ChatbotWidget() {
       {/* Floating button */}
       <button
         onClick={handleToggle}
-        className={`fixed bottom-4 right-4 md:right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 ${
+        className={`fixed bottom-22 right-4 md:right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 ${
           isOpen
             ? "bg-gray-600 hover:bg-gray-700"
             : "bg-linear-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"

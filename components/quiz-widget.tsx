@@ -430,10 +430,10 @@ export function QuizWidget() {
         </div>
       </div>
 
-      {/* Floating quiz button – above chatbot button */}
+      {/* Floating quiz button – below chatbot button */}
       <button
         onClick={handleToggle}
-        className={`fixed bottom-22 right-4 md:right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 ${
+        className={`fixed bottom-4 right-4 md:right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 ${
           isOpen
             ? "bg-gray-600 hover:bg-gray-700"
             : "bg-linear-to-br from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700"
