@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Star } from "lucide-react"
+import Link from "next/link"
 
 const navItems = [
   { href: "#van-de", label: "Vấn đề", id: "van-de" },
@@ -55,25 +56,33 @@ export function StickyNav() {
             CM Tháng Tám 1945
           </span>
         </div>
-        <div className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.id
+        <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id
 
-            return (
-              <a
-                key={item.id}
-                href={item.href}
-                aria-current={isActive ? "page" : undefined}
-                className={`text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 ${
-                  isActive
-                    ? "text-[#7c2d12] bg-[#fbbf24] shadow-[0_0_0_1px_rgba(251,191,36,0.4)]"
-                    : "text-[#fde68a]/70 hover:text-[#fde68a] hover:bg-[#fbbf24]/15"
-                }`}
-              >
-                {item.label}
-              </a>
-            )
-          })}
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? "text-[#7c2d12] bg-[#fbbf24] shadow-[0_0_0_1px_rgba(251,191,36,0.4)]"
+                      : "text-[#fde68a]/70 hover:text-[#fde68a] hover:bg-[#fbbf24]/15"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              )
+            })}
+          </div>
+          <Link
+            href="/quizz"
+            className="text-sm font-semibold px-3 py-1.5 rounded-full text-[#7c2d12] bg-[#fbbf24] hover:bg-[#f59e0b] transition-colors duration-300"
+          >
+            Quizz
+          </Link>
         </div>
       </div>
     </nav>
