@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Be_Vietnam_Pro } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ChatbotWidget } from '@/components/chatbot-widget'
+import { QuizWidget } from '@/components/quiz-widget'
 import './globals.css'
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -46,6 +47,7 @@ export default function RootLayout({
     <html lang="vi">
       <body className={`${beVietnamPro.variable} font-sans antialiased`}>
         {children}
+        <QuizWidget />
         <ChatbotWidget />
         <Analytics />
       </body>
