@@ -1,6 +1,51 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { Star } from "lucide-react"
 
+const navItems = [
+  { href: "#van-de", label: "Vấn đề", id: "van-de" },
+  { href: "#chien-luoc", label: "Chiến lược", id: "chien-luoc" },
+  { href: "#luc-luong", label: "Lực lượng", id: "luc-luong" },
+  { href: "#thoi-co", label: "Thời cơ", id: "thoi-co" },
+  { href: "#phan-tich", label: "Phân tích", id: "phan-tich" },
+  { href: "#ket-luan", label: "Kết luận", id: "ket-luan" },
+]
+
 export function StickyNav() {
+  const [activeSection, setActiveSection] = useState(navItems[0].id)
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => section !== null)
+
+    if (!sections.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+        if (visible[0]?.target?.id) {
+          setActiveSection(visible[0].target.id)
+        }
+      },
+      {
+        root: null,
+        // Activate earlier: section becomes active as soon as it enters
+        // the top area of viewport instead of waiting until center.
+        rootMargin: "0px 0px -70% 0px",
+        threshold: 0,
+      },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <nav className="sticky top-0 z-50 bg-[#8b0000]/95 backdrop-blur-sm border-b border-[#fbbf24]/20">
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -11,24 +56,24 @@ export function StickyNav() {
           </span>
         </div>
         <div className="hidden md:flex items-center gap-6">
-          <a href="#van-de" className="text-[#fde68a]/70 hover:text-[#fde68a] text-sm font-medium transition-colors">
-            Vấn đề
-          </a>
-          <a href="#chien-luoc" className="text-[#fde68a]/70 hover:text-[#fde68a] text-sm font-medium transition-colors">
-            Chiến lược
-          </a>
-          <a href="#luc-luong" className="text-[#fde68a]/70 hover:text-[#fde68a] text-sm font-medium transition-colors">
-            Lực lượng
-          </a>
-          <a href="#thoi-co" className="text-[#fde68a]/70 hover:text-[#fde68a] text-sm font-medium transition-colors">
-            Thời cơ
-          </a>
-          <a href="#phan-tich" className="text-[#fde68a]/70 hover:text-[#fde68a] text-sm font-medium transition-colors">
-            Phân tích
-          </a>
-          <a href="#ket-luan" className="text-[#fde68a]/70 hover:text-[#fde68a] text-sm font-medium transition-colors">
-            Kết luận
-          </a>
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id
+
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-300 ${
+                  isActive
+                    ? "text-[#7c2d12] bg-[#fbbf24] shadow-[0_0_0_1px_rgba(251,191,36,0.4)]"
+                    : "text-[#fde68a]/70 hover:text-[#fde68a] hover:bg-[#fbbf24]/15"
+                }`}
+              >
+                {item.label}
+              </a>
+            )
+          })}
         </div>
       </div>
     </nav>
